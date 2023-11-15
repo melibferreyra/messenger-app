@@ -33,6 +33,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         const messages = data.messages || []
 
         return messages[messages.length -1]
+
     }, [data.messages])
 
     const userEmail = useMemo(()=> {
@@ -48,6 +49,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         if(!userEmail) return false
 
         return seenArray.filter((user)=> user.email === userEmail).length !== 0
+
     }, [userEmail, lastMessage])
 
     const lastMessageText = useMemo(()=> {
@@ -56,6 +58,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         if(lastMessage?.body) return lastMessage.body
 
         return 'Started a conversation'
+        
     }, [lastMessage])
 
     return (
